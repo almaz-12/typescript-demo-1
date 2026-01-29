@@ -1,11 +1,8 @@
-function getFullName(userEntity: {firstName:string, lastName:string}): string {
-  return `${userEntity.firstName} ${userEntity.lastName}`;
+const skills: string[] = ['html', 'css', 'js', 'vue'];
+
+for (const skill of skills) {
+  console.log(skill)
 }
 
-const user = {
-  firstName: 'test',
-  lastName: 'name',
-  age: 23,
-}
 
-getFullName(user);
+skills.filter(s => s !== 'css')
