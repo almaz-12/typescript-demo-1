@@ -1,5 +1,11 @@
-let rev: number = 1000;
-let bonus: number = 500;
+function getFullName(firstName: string, lastName:string): string {
+  return `${firstName} ${lastName}`;
+}
 
-let res: number = rev + bonus;
-console.log(res);
+getFullName('test', 'name');
+
+let getFullNameArrow = (firstName: string, lastName:string): string => {
+  return `${firstName} ${lastName}`;
+}
+
+getFullNameArrow('test', 'name');
