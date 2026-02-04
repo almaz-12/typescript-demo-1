@@ -1,12 +1,29 @@
-const skills: readonly [number, {name: string}] = [1, {name: 'dev'}];
+function logId(id: string | number | boolean) {
+	if(typeof id === 'string') {
+		id.toUpperCase();
+	} else if(typeof id === 'number') {
+		console.log(id);
+	} else {
+		console.log(id);
+	}
+}
 
-const [id, skillName] = skills;
+logId(3);
 
-console.log(id); // 1
-console.log(skillName); // {name: 'dev'}
+function error(id: string | string[]) {
+	if(Array.isArray(id)) {
+		console.log(id);
+	} else {
+		console.log(id);
+	}
+}
 
-// не получится сделать с readonly
-skills.push('test')
+error('3');
 
-// !!! не работает для вложенного объекта
-skills[1].name = 'another'
+function logObject(obj: { a: number } | { b : string}) {
+	if('a' in obj) {
+		console.log(obj.a);
+	} else {
+		console.log(obj.b);
+	}
+}
