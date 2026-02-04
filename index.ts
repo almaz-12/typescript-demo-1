@@ -1,23 +1,17 @@
-// 1. простой тип
-type ID = number;
-
-// 2. литеральный
-type Status = 'pending' | 'cancel';
-type Method = 'post' | 'get';
-
-
-function fetchData(url: string, method: Method, id: ID): 1 | 0  {
-	return 1;
-}
-
-// 3.
-type User = {
+interface User {
 	id: number;
 	name: string;
-	role?: 'admin' | 'manager';
+	age?: number;
 }
 
-const user: User = {
+interface UserRole {
+	role: 'admin' | 'manager';
+}
+
+interface UserWithRole extends User,UserRole {}
+
+const user: UserWithRole = {
 	id: 1,
 	name: 'asd',
+	role: 'admin',
 }
