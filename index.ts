@@ -1,17 +1,33 @@
+// Пример 1
 interface User {
-	id: number;
-	name: string;
-	age?: number;
+	login: string;
+	password?: string;
 }
 
-interface UserRole {
-	role: 'admin' | 'manager';
+const user: User = {
+	login: 'test',
 }
 
-interface UserWithRole extends User,UserRole {}
+// Пример 2
+function multiplay(first: number, second?: number): number {
+	return first * (second ?? first);
+}
 
-const user: UserWithRole = {
-	id: 1,
-	name: 'asd',
-	role: 'admin',
+multiplay(5);
+
+// Пример 3
+interface UserData {
+	login: string,
+	password?: {
+		type: 'admin' | 'manager'
+	}
+}
+
+function testUser(userData: UserData) {
+	return userData.password?.type;
+}
+
+// Пример 4
+function testNum(num?: number) {
+	const a = num ?? 5;
 }
