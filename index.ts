@@ -1,33 +1,23 @@
-// Пример 1
-interface User {
-	login: string;
-	password?: string;
+// Функция, которая ничего не возвращает
+function logMessage(message: string): void {
+    console.log(`[LOG]: ${message}`);
+    // Нет return!
 }
 
-const user: User = {
-	login: 'test',
-}
+// Использование
+logMessage("Привет, мир!"); // Выведет в консоль
+const result = logMessage("Тест");
 
-// Пример 2
-function multiplay(first: number, second?: number): number {
-	return first * (second ?? first);
-}
+// Практическое применение в коллбэках
+// когда не надо ничего возвращать
 
-multiplay(5);
+const n = [];
 
-// Пример 3
-interface UserData {
-	login: string,
-	password?: {
-		type: 'admin' | 'manager'
+[1,2,3].forEach((el) => n.push(1)) // push возвращает number,  но forEach игнорирует
+
+
+const testForeach = (arg: number[], callfuc: () => void): void => {
+	for (const item of arg) {
+			callfuc(); // Нам не важно, что вернёт callback
 	}
-}
-
-function testUser(userData: UserData) {
-	return userData.password?.type;
-}
-
-// Пример 4
-function testNum(num?: number) {
-	const a = num ?? 5;
-}
+};
