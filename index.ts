@@ -1,8 +1,6 @@
-// правильно
-let user: null = null;
-let userAny: any = null;
+// преобразование compile time
+let n: number = +"123";
 
-// !!! ошибка
-let user1: string = null;
-let user2: boolean = null;
-let user3: number = null;
+// приведение runtime
+const data: unknown = "hello";
+const length = (data as string).length; // Говорим TS: "data - это строка"
