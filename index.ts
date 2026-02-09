@@ -1,6 +1,14 @@
-// преобразование compile time
-let n: number = +"123";
+// Функция возвращает boolean
+function isString(value: any): value is string {
+    return typeof value === "string";
+}
 
-// приведение runtime
-const data: unknown = "hello";
-const length = (data as string).length; // Говорим TS: "data - это строка"
+function process(value: string | number) {
+    if (isString(value)) {
+        // value: string
+        console.log(value.length);
+    } else {
+        // value: number
+        console.log(value * 2);
+    }
+}
